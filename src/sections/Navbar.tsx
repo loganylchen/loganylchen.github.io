@@ -84,13 +84,14 @@ export default function Navbar() {
           </div>
 
           {/* Download CV */}
-          <button
-            onClick={() => window.print()}
+          <a
+            href="/yuelong-chen-cv.pdf"
+            download="Yuelong_Chen_CV.pdf"
             className="print-hide hidden md:inline-flex items-center gap-2 px-4 py-1.5 bg-navy text-white text-sm rounded hover:bg-navy/90 transition-colors"
           >
             <Download className="w-3.5 h-3.5" />
             Download CV
-          </button>
+          </a>
 
           {/* Mobile Menu Button */}
           <button
