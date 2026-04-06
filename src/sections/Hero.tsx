@@ -79,9 +79,9 @@ export default function Hero() {
 
             {/* Contact Info */}
             <div className="flex flex-wrap gap-6 text-sm text-slate-500 mb-8">
-              <a href="mailto:yuelong.chen.btr@gmail.com" className="flex items-center gap-2 hover:text-navy transition-colors">
+              <a href="mailto:yuelongchen@cuhk.edu.hk" className="flex items-center gap-2 hover:text-navy transition-colors">
                 <Mail className="w-4 h-4" />
-                yuelong.chen.btr@gmail.com
+                yuelongchen@cuhk.edu.hk
               </a>
               <span className="flex items-center gap-2">
                 <MapPin className="w-4 h-4" />

@@ -73,10 +73,10 @@ export default function Contact() {
                 <div className="flex items-center gap-3">
                   <Mail className="w-5 h-5 text-gold" />
                   <a
-                    href="mailto:yuelong.chen.btr@gmail.com"
+                    href="mailto:yuelongchen@cuhk.edu.hk"
                     className="text-slate-300 hover:text-white transition-colors"
                   >
-                    yuelong.chen.btr@gmail.com
+                    yuelongchen@cuhk.edu.hk
                   </a>
                 </div>
               </div>
