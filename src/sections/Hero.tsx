@@ -141,6 +141,15 @@ export default function Hero() {
                 <Github className="w-4 h-4" />
                 GitHub
               </a>
+              <a
+                href="https://orcid.org/0000-0002-4639-0396"
+                target="_blank"
+                rel="noopener noreferrer"
+                className="inline-flex items-center gap-2 px-4 py-2 border border-slate-300 text-slate-700 text-sm rounded hover:border-navy hover:text-navy transition-colors"
+              >
+                <ExternalLink className="w-4 h-4" />
+                ORCID
+              </a>
             </div>
           </div>
         </div>

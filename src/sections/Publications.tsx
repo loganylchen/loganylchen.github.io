@@ -13,7 +13,7 @@ const publications = [
     year: '2023',
     volume: 'Vol. 10, No. 3',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.1002/advs.202203480',
     highlight: true,
   },
   {
@@ -23,17 +23,17 @@ const publications = [
     year: '2022',
     volume: 'Vol. 13, No. 1',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.1038/s41467-022-34550-9',
     highlight: true,
   },
   {
-    title: 'miRNA-mRNA Analysis Concerning Embryonic Development in Medaka Fish',
+    title: 'miRNA-mRNA Integrative Analysis of Embryonic Development in Medaka Fish',
     authors: 'Lai et al.',
     venue: 'Frontiers in Marine Science',
     year: '2022',
     volume: 'Vol. 8',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.3389/fmars.2021.736362',
     highlight: false,
   },
   {
@@ -43,37 +43,37 @@ const publications = [
     year: '2017',
     volume: 'Vol. 8, No. 47',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.18632/oncotarget.19628',
     highlight: false,
   },
   {
-    title: 'Side Effect Protein Analysis Study',
-    authors: 'Wang et al.',
+    title: 'Identifying the Causative Proteins of Similar Side Effect Pairs',
+    authors: 'Yunfeng Wang, Yuelong Chen, et al.',
     venue: 'Molecular BioSystems',
     year: '2015',
     volume: 'Vol. 11, No. 7',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.1039/C5MB00242G',
     highlight: false,
   },
   {
     title: 'Drug Repositioning Using Integrated Similarity Profiles',
-    authors: 'Tan et al.',
+    authors: 'Fujian Tan et al.',
     venue: 'Molecular BioSystems',
     year: '2014',
     volume: 'Vol. 10, No. 5',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.1039/C3MB70554D',
     highlight: false,
   },
   {
-    title: 'ADR-Related Protein Network Analysis',
+    title: 'Network Characteristic Analysis of ADR-related Proteins',
     authors: 'Yuelong Chen et al.',
     venue: 'Scientific Reports',
     year: '2013',
     volume: 'Vol. 3',
     type: 'Journal',
-    links: {},
+    doi: 'https://doi.org/10.1038/srep01744',
     highlight: false,
   },
 ];
@@ -126,8 +126,8 @@ export default function Publications() {
             Publications
           </h2>
 
-          {/* Filter */}
-          <div className="flex gap-2">
+          {/* Filter — hidden in print */}
+          <div className="print-hide flex gap-2">
             {([['all', 'All'], ['recent', '2020+']] as const).map(([value, label]) => (
               <button
                 key={value}
@@ -152,7 +152,7 @@ export default function Publications() {
           </div>
         </div>
 
-        {/* Publications List */}
+        {/* Publications List — print always shows all */}
         <div className="space-y-4">
           {filteredPubs.map((pub, index) => (
             <div
@@ -174,28 +174,29 @@ export default function Publications() {
                   </p>
                 </div>
 
-                <div className="flex items-center gap-4">
-                  {Object.keys(pub.links).length > 0 && (
-                    <div className="flex gap-2">
-                      {(pub.links as Record<string, string>).pdf && (
-                        <a
-                          href={(pub.links as Record<string, string>).pdf}
-                          className="px-3 py-1.5 text-sm border border-slate-300 rounded hover:border-navy hover:text-navy transition-colors flex items-center gap-1"
-                        >
-                          <ExternalLink className="w-3 h-3" />
-                          PDF
-                        </a>
-                      )}
-                    </div>
-                  )}
+                <div className="print-hide flex items-center gap-2 flex-shrink-0">
+                  <a
+                    href={pub.doi}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="px-3 py-1.5 text-sm border border-slate-300 rounded hover:border-navy hover:text-navy transition-colors flex items-center gap-1"
+                  >
+                    <ExternalLink className="w-3 h-3" />
+                    DOI
+                  </a>
+                </div>
+
+                {/* Print-only: show DOI as plain text */}
+                <div className="hidden print:block text-xs text-slate-400">
+                  {pub.doi}
                 </div>
               </div>
             </div>
           ))}
         </div>
 
-        {/* View All */}
-        <div className="mt-8 text-center">
+        {/* View All — hidden in print */}
+        <div className="print-hide mt-8 text-center">
           <a
             href="https://loganylchen.github.io"
             target="_blank"

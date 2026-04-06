@@ -128,3 +128,105 @@
     transition-duration: 0.01ms !important;
   }
 }
+
+/* ── Print / Save as PDF ───────────────────────────────────────── */
+@media print {
+  @page {
+    size: A4;
+    margin: 1.5cm 2cm;
+  }
+
+  /* Hide chrome */
+  nav,
+  footer,
+  .print-hide {
+    display: none !important;
+  }
+
+  /* Strip spacing from sections */
+  .academic-section {
+    padding-top: 14pt !important;
+    padding-bottom: 14pt !important;
+    break-before: page;
+  }
+
+  /* Hero: remove full-screen height, hide photo */
+  section:first-of-type {
+    min-height: unset !important;
+    padding-top: 0 !important;
+    break-before: avoid;
+  }
+
+  .hero-image {
+    display: none !important;
+  }
+
+  .hero-content {
+    grid-column: 1 / -1 !important;
+  }
+
+  /* Strip all backgrounds / shadows */
+  *,
+  *::before,
+  *::after {
+    background-color: white !important;
+    background-image: none !important;
+    box-shadow: none !important;
+    transition: none !important;
+  }
+
+  /* Restore meaningful colours */
+  .text-navy,
+  h1, h2, h3, h4 {
+    color: #1e3a5f !important;
+  }
+
+  .text-gold {
+    color: #b8860b !important;
+  }
+
+  /* Contact section: was dark-on-dark, make readable */
+  .bg-navy h2,
+  .bg-navy h3,
+  .bg-navy p,
+  .bg-navy a,
+  .bg-navy span {
+    color: #1e293b !important;
+  }
+
+  /* Body text */
+  p, li, span, td {
+    color: #374151 !important;
+  }
+
+  /* Keep borders visible */
+  .border-l-2 {
+    border-color: #94a3b8 !important;
+  }
+
+  /* Avoid breaking mid-item */
+  .edu-item,
+  .pub-item,
+  .award-item,
+  .grant-item,
+  .research-card {
+    break-inside: avoid;
+    page-break-inside: avoid;
+  }
+
+  /* Shrink section heading margins */
+  h2 {
+    font-size: 15pt !important;
+    margin-bottom: 10pt !important;
+  }
+
+  /* Convert coloured tag chips to plain text */
+  .bg-navy\/5,
+  .bg-slate-100,
+  .bg-gold\/10,
+  .bg-white\/5,
+  .bg-white\/10,
+  .bg-white\/20 {
+    background-color: #f8fafc !important;
+  }
+}

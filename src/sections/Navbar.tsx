@@ -1,5 +1,5 @@
 import { useState, useEffect } from 'react';
-import { Menu, X } from 'lucide-react';
+import { Menu, X, Download } from 'lucide-react';
 
 const navLinks = [
   { name: 'About', href: '#about' },
@@ -82,6 +82,15 @@ export default function Navbar() {
               </a>
             ))}
           </div>
+
+          {/* Download CV */}
+          <button
+            onClick={() => window.print()}
+            className="print-hide hidden md:inline-flex items-center gap-2 px-4 py-1.5 bg-navy text-white text-sm rounded hover:bg-navy/90 transition-colors"
+          >
+            <Download className="w-3.5 h-3.5" />
+            Download CV
+          </button>
 
           {/* Mobile Menu Button */}
           <button
