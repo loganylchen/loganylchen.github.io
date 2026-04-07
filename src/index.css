@@ -136,6 +136,13 @@
     margin: 1.5cm 2cm;
   }
 
+  /* ---- Force ALL GSAP-animated content visible ---- */
+  * {
+    opacity: 1 !important;
+    transform: none !important;
+    visibility: visible !important;
+  }
+
   /* Hide chrome */
   nav,
   footer,
@@ -143,18 +150,16 @@
     display: none !important;
   }
 
-  /* Strip spacing from sections */
+  /* Compact section spacing – NO forced page breaks */
   .academic-section {
     padding-top: 14pt !important;
     padding-bottom: 14pt !important;
-    break-before: page;
   }
 
   /* Hero: remove full-screen height, hide photo */
   section:first-of-type {
     min-height: unset !important;
     padding-top: 0 !important;
-    break-before: avoid;
   }
 
   .hero-image {
@@ -173,6 +178,7 @@
     background-image: none !important;
     box-shadow: none !important;
     transition: none !important;
+    animation: none !important;
   }
 
   /* Restore meaningful colours */
@@ -214,13 +220,18 @@
     page-break-inside: avoid;
   }
 
-  /* Shrink section heading margins */
+  /* Section headings: avoid orphan headings at bottom of page */
+  h2, h3 {
+    break-after: avoid;
+    page-break-after: avoid;
+  }
+
   h2 {
     font-size: 15pt !important;
     margin-bottom: 10pt !important;
   }
 
-  /* Convert coloured tag chips to plain text */
+  /* Convert coloured tag chips to light bg */
   .bg-navy\/5,
   .bg-slate-100,
   .bg-gold\/10,
@@ -228,5 +239,10 @@
   .bg-white\/10,
   .bg-white\/20 {
     background-color: #f8fafc !important;
+  }
+
+  /* Section divider */
+  .section-divider {
+    margin-bottom: 8pt !important;
   }
 }
